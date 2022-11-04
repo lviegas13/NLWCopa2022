@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+} 
+:root{
+  --hue:156;
+  --bg-linear-color1:hsl(var(--hue), 24%, 12%);
+  --bg-linear-color2:hsl(var(--hue), 5%, 7%);
+  --bg-card:hsl(var(--hue), 7%, 11%);
+  --border-botton-card:hsl(var(--hue), 92%, 62%);
+  --border-h2:hsl(var(--hue), 69%, 27%);
+}
+body {
+  background:linear-gradient(180deg,var(--bg-linear-color1), var(--bg-linear-color2)); /*OK*/     
+ 
+}
+body * {
+  font-family: 'Roboto', sans-serif;
+}
+#app {
+  width: fit-content;
+  margin:auto;
+  padding-top: 52px;
+}
+header {
+  margin-bottom: 63px;
+}
+header img {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#cards .card {
+  padding: 32px 23px;
+  text-align: center;
+  background: var(--bg-card);/*OK*/
+  border-bottom: 2px solid var(--border-botton-card);/*OK*/
+  border-radius: 6px;
+}
+#cards h2 {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--border-h2);/*OK*/
+  border-radius: 6px;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 53px;
+  color: hsl(51, 92%, 62%);
+}
+#cards h2 span {
+  color: hsl(240, 9%, 89%);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+#cards ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 270px;
+}
+#cards ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#cards ul li + li {
+  padding-top: 24px;
+  border-top: 1px solid hsl(240, 6%, 21%);
+}
+#cards ul li strong {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+  color: hsl(240, 9%, 89%);
+}
+
+#cards .card{
+  opacity: 0;
+  animation: appear .2s forwards;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media(min-width:400px){
+  #cards{
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* FEITO EM AULA
+ background-image: url(assets/yellow-bg.svg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
