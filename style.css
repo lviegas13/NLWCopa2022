@@ -5,25 +5,32 @@
 }
 ul {
   list-style: none;
-} 
-:root{
-  --hue:156;
-  --bg-linear-color1:hsl(var(--hue), 24%, 12%);
-  --bg-linear-color2:hsl(var(--hue), 5%, 7%);
-  --bg-card:hsl(var(--hue), 7%, 11%);
-  --border-botton-card:hsl(var(--hue), 92%, 62%);
-  --border-h2:hsl(var(--hue), 69%, 27%);
+}
+header,
+li {
+  visibility: hidden;
+}
+:root {
+  --hue: 156;
+  --bg-linear-color1: hsl(var(--hue), 24%, 12%);
+  --bg-linear-color2: hsl(var(--hue), 5%, 7%);
+  --bg-card: hsl(var(--hue), 7%, 11%);
+  --border-botton-card: hsl(var(--hue), 92%, 62%);
+  --border-h2: hsl(var(--hue), 69%, 27%);
 }
 body {
-  background:linear-gradient(180deg,var(--bg-linear-color1), var(--bg-linear-color2)); /*OK*/     
- 
+  background: linear-gradient(
+    180deg,
+    var(--bg-linear-color1),
+    var(--bg-linear-color2)
+  ); /*OK*/
 }
 body * {
   font-family: 'Roboto', sans-serif;
 }
 #app {
   width: fit-content;
-  margin:auto;
+  margin: auto;
   padding-top: 52px;
 }
 header {
@@ -34,36 +41,45 @@ header img {
   justify-content: center;
   margin: 0 auto;
 }
+#final-phase,
+#quartas-finais,
 #cards {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
+.final-card,
 #cards .card {
   padding: 32px 23px;
   text-align: center;
-  background: var(--bg-card);/*OK*/
-  border-bottom: 2px solid var(--border-botton-card);/*OK*/
+  background: var(--bg-card); /*OK*/
+  border-bottom: 2px solid var(--border-botton-card); /*OK*/
   border-radius: 6px;
 }
+#final-phase h2,
+#quartas-finais h2,
 #cards h2 {
   display: flex;
   gap: 16px;
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  border: 1px solid var(--border-h2);/*OK*/
+  border: 1px solid var(--border-h2); /*OK*/
   border-radius: 6px;
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 53px;
   color: hsl(51, 92%, 62%);
 }
+#final-phase h2 span,
+#quartas-finais h2 span,
 #cards h2 span {
   color: hsl(240, 9%, 89%);
   font-size: 14px;
   text-transform: uppercase;
 }
+#final-phase ul,
+#quartas-finais ul,
 #cards ul {
   display: flex;
   flex-direction: column;
@@ -71,6 +87,8 @@ header img {
 
   width: 270px;
 }
+#final-phase ul li,
+#quartas-finais ul li,
 #cards ul li {
   display: flex;
   align-items: center;
@@ -80,6 +98,8 @@ header img {
   padding-top: 24px;
   border-top: 1px solid hsl(240, 6%, 21%);
 }
+#final-phase ul li strong,
+#quartas-finais ul li strong,
 #cards ul li strong {
   font-weight: 900;
   font-size: 36px;
@@ -87,9 +107,9 @@ header img {
   color: hsl(240, 9%, 89%);
 }
 
-#cards .card{
+#cards .card {
   opacity: 0;
-  animation: appear .2s forwards;
+  animation: appear 0.8s forwards;
 }
 
 @keyframes appear {
@@ -101,16 +121,46 @@ header img {
     opacity: 1;
   }
 }
-@media(min-width:400px){
-  #cards{
+.phases {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-linear-color1);
+  padding-top: 16px;
+  text-align: center;
+  margin-top: 64px;
+  color: hsl(240, 9%, 89%);
+  border-radius: 8px;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  #final-phase,
+  #quartas-finais,
+  #cards {
     max-width: 670px;
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .card:hover {
+    transform: scale(1.1);
+  }
+  .card {
+    transition: transform 2s;
+  }
+}
+@media (min-width: 1440px) {
+  #final-phase,
+  #quartas-finais,
+  #cards {
+    max-width: 1020px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card:hover {
+    transform: scale(1.1);
+  }
+  .card {
+    transition: transform 2s;
+  }
 }
 
-/* FEITO EM AULA
- background-image: url(assets/yellow-bg.svg);
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;*/
